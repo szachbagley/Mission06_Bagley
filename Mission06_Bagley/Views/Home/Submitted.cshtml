@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Submitted";
+}
+
+@model Movie
+
+<h1>Thank you for your submission.</h1>
+<h2>You have submitted this film:</h2>
+<h3>@Model.Title</h3>
+<p>Category: @Model.Category</p>
+<p>Year: @Model.Year</p>
+<p>Director: @Model.Director</p>
+<p>Rating: @Model.Rating</p>
+@if (Model.Edited == true)
+{
+    <p>Edited</p>
+}
+@if (Model.LentTo != null)
+{
+    <p>Lent to @Model.LentTo</p>
+}
+@if (Model.Notes != null)
+{
+    @Model.Notes
+}

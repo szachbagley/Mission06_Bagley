@@ -9,14 +9,20 @@
 <br />
 <br />
 <form method="post">
+    <input type="hidden" asp-for="MovieId" />
     <label asp-for="Title">Title:</label>
     <br />
     <input asp-for="Title" required />
     <br />
     <br />
-    <label asp-for="Category">Category:</label>
+    <label asp-for="CategoryId">Category:</label>
     <br />
-    <input asp-for="Category" required />
+    <select asp-for="CategoryId" required >
+        @foreach (Category m in ViewBag.Categories)
+        {
+            <option value="@m.CategoryId">@m.CategoryName</option>
+        }
+    </select>
     <br />
     <br />
     <label asp-for="Year">Year:</label>
@@ -51,10 +57,17 @@
     <input asp-for="LentTo" />
     <br />
     <br />
+    <label asp-for="CopiedToPlex">Copied to Plex?</label>
+    <br />
+    <label for="plexYes">Yes</label><input type="radio" id="plexYes" asp-for="CopiedToPlex" value="true" />
+    <br />
+    <label for="plexNo">No</label><input type="radio" id="plexNo" asp-for="CopiedToPlex" value="false" />
+    <br />
+    <br />
     <label asp-for="Notes">Notes (limit 25 characters):</label>
     <br />
     <input asp-for="Notes" />
-    <button type="submit">Submit Movie</button>
+    <button type="submit" class="btn btn-info">Submit Movie</button>
 
 
 </form>

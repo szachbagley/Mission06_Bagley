@@ -37,10 +37,21 @@ namespace Mission06_Bagley.Controllers
         [HttpPost]
         public IActionResult MovieForm(Movie response)
         {
-            _context.Movies.Add(response);//add record to database
-            _context.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _context.Movies.Add(response);//add record to database
+                _context.SaveChanges();
 
-            return View("Submitted", response);
+                return View("Submitted", response);
+            }
+            else
+            {
+                ViewBag.Categories = _context.Categories
+                    .OrderBy(x => x.CategoryName)
+                    .ToList();
+
+                return View(response);
+            }
         }
 
         public IActionResult Collection()

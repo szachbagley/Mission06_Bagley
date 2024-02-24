@@ -47,9 +47,9 @@
     <br />
     <label asp-for="Edited">Edited?</label>
     <br />
-    <label for="editedYes">Yes</label><input type="radio" id="editedYes" asp-for="Edited" value="true" />
+    <label for="editedYes">Yes</label><input type="radio" id="editedYes" asp-for="Edited" value="true" required/>
     <br />
-    <label for="editedNo">No</label><input type="radio" id="editedNo" asp-for="Edited" value="false" />
+    <label for="editedNo">No</label><input type="radio" id="editedNo" asp-for="Edited" value="false" required/>
     <br />
     <br />
     <label asp-for="LentTo">Lent To:</label>
@@ -59,9 +59,9 @@
     <br />
     <label asp-for="CopiedToPlex">Copied to Plex?</label>
     <br />
-    <label for="plexYes">Yes</label><input type="radio" id="plexYes" asp-for="CopiedToPlex" value="true" />
+    <label for="plexYes">Yes</label><input type="radio" id="plexYes" asp-for="CopiedToPlex" value="true" required/>
     <br />
-    <label for="plexNo">No</label><input type="radio" id="plexNo" asp-for="CopiedToPlex" value="false" />
+    <label for="plexNo">No</label><input type="radio" id="plexNo" asp-for="CopiedToPlex" value="false" required/>
     <br />
     <br />
     <label asp-for="Notes">Notes (limit 25 characters):</label>
@@ -69,5 +69,5 @@
     <input asp-for="Notes" />
     <button type="submit" class="btn btn-info">Submit Movie</button>
 
-
+    <div asp-validation-summary="All"></div>
 </form>
